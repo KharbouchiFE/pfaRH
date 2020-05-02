@@ -13,7 +13,6 @@ public class Regime {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private int reference;
 	private String description;
 	private String libelle;
 	@OneToMany(mappedBy = "regime")
@@ -23,9 +22,9 @@ public class Regime {
 		super();
 	}
 
-	public Regime(int reference, String description, String libelle) {
+	public Regime(String description, String libelle) {
 		super();
-		this.reference = reference;
+		
 		this.description = description;
 		this.libelle = libelle;
 	}
@@ -36,14 +35,6 @@ public class Regime {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getReference() {
-		return reference;
-	}
-
-	public void setReference(int reference) {
-		this.reference = reference;
 	}
 
 	public String getDescription() {
@@ -72,7 +63,7 @@ public class Regime {
 
 	@Override
 	public String toString() {
-		return "Regime [id=" + id + ", reference=" + reference + ", description=" + description + ", libelle=" + libelle
+		return "Regime [id=" + id + ", description=" + description + ", libelle=" + libelle
 				+ ", reservations=" + reservations + "]";
 	}
 
