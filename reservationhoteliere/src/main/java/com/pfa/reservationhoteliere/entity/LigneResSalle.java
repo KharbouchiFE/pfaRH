@@ -1,15 +1,17 @@
 package com.pfa.reservationhoteliere.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class LigneResSalle {
+public class LigneResSalle  implements Serializable{
 	@EmbeddedId
 	private LigneReservSallePK ligneReservSallePK;
 	@Temporal(TemporalType.DATE)
@@ -17,8 +19,10 @@ public class LigneResSalle {
 	@Temporal(TemporalType.DATE)
 	private Date dateSortie;
 	@ManyToOne
+	@JoinColumn(name="salle", referencedColumnName="id", insertable= false, updatable = false)
 	private Salle salle;
 	@ManyToOne
+	@JoinColumn(name="reservation", referencedColumnName="id", insertable= false, updatable = false)
 	private Reservation reservation;
 
 	public LigneResSalle() {

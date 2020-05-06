@@ -1,5 +1,6 @@
 package com.pfa.reservationhoteliere.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,8 +13,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Reservation {
+public class Reservation implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -25,6 +28,7 @@ public class Reservation {
 	@ManyToOne
 	private Regime regime;
 	@ManyToOne
+	@JsonIgnore
 	private Facture facture;
 	@ManyToOne
 	private Client client;
