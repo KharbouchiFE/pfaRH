@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Client  implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int id;//clé primere f base donnee findByID
 	private String reference;// CIN ou N passeport ...
 	private String nom;
 	private String prenom;
