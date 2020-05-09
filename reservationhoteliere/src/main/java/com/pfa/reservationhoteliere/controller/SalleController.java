@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pfa.reservationhoteliere.entity.Salle;
-import com.pfa.reservationhoteliere.repository.IRegimeRepository;
 import com.pfa.reservationhoteliere.repository.ISalleRepository;
 
 @RestController

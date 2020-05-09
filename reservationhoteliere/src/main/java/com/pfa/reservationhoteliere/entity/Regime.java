@@ -1,5 +1,6 @@
 package com.pfa.reservationhoteliere.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,14 +9,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Regime {
+public class Regime implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String description;
 	private String libelle;
 	@OneToMany(mappedBy = "regime")
+	@JsonIgnore
 	private List<Reservation> reservations;
 
 	public Regime() {

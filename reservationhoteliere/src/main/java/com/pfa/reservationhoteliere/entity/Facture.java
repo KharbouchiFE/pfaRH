@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Facture {
+public class Facture  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -23,11 +23,9 @@ public class Facture {
 	private ModePaiement modePaiement;
 	@ManyToOne
 	private Reservation reservation;
-
 	public Facture() {
 		super();
 	}
-
 	public Facture(String reference, float total, Date dateFacture, ModePaiement modePaiement,
 			Reservation reservation) {
 		super();

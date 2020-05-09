@@ -1,5 +1,6 @@
 package com.pfa.reservationhoteliere.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,8 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-public class Client {
+public class Client  implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -21,6 +24,7 @@ public class Client {
 	private String adresse;
 	private String nationnalite;
 	@OneToMany(mappedBy = "client")
+	@JsonIgnore
 	private List<Reservation> reservations;
 
 	public Client() {

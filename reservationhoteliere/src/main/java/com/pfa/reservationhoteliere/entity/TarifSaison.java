@@ -2,6 +2,7 @@ package com.pfa.reservationhoteliere.entity;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -10,8 +11,10 @@ public class TarifSaison {
 	private TarifSaisonPK tarifSaisonPK;
 	private float prixFinal;
 	@ManyToOne
+	@JoinColumn(name="tarif", referencedColumnName="id", insertable= false, updatable = false)
 	private Tarif tarif;
 	@ManyToOne
+	@JoinColumn(name="saison", referencedColumnName="id", insertable= false, updatable = false)
 	private Saison saison;
 
 	public TarifSaison() {

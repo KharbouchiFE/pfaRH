@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -17,8 +18,10 @@ public class LigneResChambre {
 	@Temporal(TemporalType.DATE)
 	private Date dateSortie;
 	@ManyToOne
+	@JoinColumn(name="chambre", referencedColumnName="id", insertable= false, updatable = false)
 	private Chambre chambre;
 	@ManyToOne
+	@JoinColumn(name="reservation", referencedColumnName="id", insertable= false, updatable = false)
 	private Reservation reservation;
 
 	public LigneResChambre() {
